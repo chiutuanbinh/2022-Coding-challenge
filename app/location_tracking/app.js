@@ -96,8 +96,8 @@ function drawAssignLines(incidents, officers) {
       incident.loc.y * UNIT_HEIGHT
     );
     graphics.lineTo(
-      officer.loc.x,
-      officer.loc.y
+      officer.loc.x * UNIT_WIDTH,
+      officer.loc.y * UNIT_HEIGHT
     );
   });
 
@@ -145,13 +145,13 @@ async function loop() {
 
 const sampleIncidents = [
   { id: 1, codeName: "IC1", loc: { x: 5, y: 10 }, officerId: 1 },
-  { id: 2, codeName: "IC2", loc: { x: 15, y: 20 }, officerId: 3 },
+  { id: 2, codeName: "IC2", loc: { x: 35, y: 35 }, officerId: 3 },
   { id: 3, codeName: "IC3", loc: { x: 25, y: 20 }, officerId: 2 },
 ];
 
 const sampleOfficers = [
   { id: 1, badgeName: "OF1", loc: { x: 8, y: 12 } },
-  { id: 2, badgeName: "OF2", loc: { x: 19, y: 20 } },
+  { id: 2, badgeName: "OF2", loc: { x: 50, y: 20 } },
   { id: 3, badgeName: "OF3", loc: { x: 10, y: 20 } },
 ];
 
@@ -163,6 +163,22 @@ async function loadData() {
     },
     error: null,
   };
+
+  // let promise = axios({
+  //   url: 'http://localhost:5672/api/v1/state',
+  //   method: 'GET',
+  //   responseType: 'json'
+  // })
+
+  // promise.then(function (result) {
+  //   console.log(result.data);
+
+  //   return result.data;
+  // })
+
+  // promise.catch(function (error) {
+  //   console.log('error', error);
+  // })
 }
 
 start();
